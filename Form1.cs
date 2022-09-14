@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Opc.Ua;
 
 namespace RobotecOPCExample
 {
@@ -7,6 +8,17 @@ namespace RobotecOPCExample
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public Form1(ApplicationConfiguration configuration)
+        {
+            InitializeComponent();
+
+        }
+
+        private void buttonConnect_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
