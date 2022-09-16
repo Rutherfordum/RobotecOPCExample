@@ -13,7 +13,7 @@ namespace OPC_UA_Client_Free
         public event Action connected;
         public event Action disconnected;
 
-        private UaTcpSessionChannel client;
+        public UaTcpSessionChannel session;
 
         public OpcClient(string serverAddress, string userName, string password)
         {
@@ -24,40 +24,40 @@ namespace OPC_UA_Client_Free
                 ApplicationType = ApplicationType.Client
             };
 
-            client = new UaTcpSessionChannel(
+            session = new UaTcpSessionChannel(
                 clientDescription,
                 null, // no x509 certificates
                 new UserNameIdentity(userName, password), // no user identity
                 $"opc.tcp://{serverAddress}", // the public endpoint of a server at opcua.rocks.
                 SecurityPolicyUris.None); // no encryption
 
-            client.Opened += Client_Opened;
-            client.Closed += Client_Closed; ;
+            session.Opened += SessionOpened;
+            session.Closed += SessionClosed; ;
         }
 
-        private void Client_Closed(object sender, EventArgs e)
+        private void SessionClosed(object sender, EventArgs e)
         {
             disconnected?.Invoke();
         }
 
-        private void Client_Opened(object sender, EventArgs e)
+        private void SessionOpened(object sender, EventArgs e)
         {
             connected?.Invoke();
         }
 
         public void Connect()
         {
-            client.OpenAsync();
+            session.OpenAsync();
         }
 
         public void Disconect()
         {
-            client.CloseAsync();
+            session.CloseAsync();
         }
 
         public object ReadNode(string id)
         {
-            if (client != null && client.State != CommunicationState.Faulted)
+            if (session != null && session.State != CommunicationState.Faulted)
             {
                 var readValue = new ReadRequest
                 {
@@ -68,7 +68,7 @@ namespace OPC_UA_Client_Free
                         }
                     }
                 };
-                var readResult = client.ReadAsync(readValue).Result;
+                var readResult = session.ReadAsync(readValue).Result;
                 return readResult.Results[0].Value;
             }
             else
@@ -80,7 +80,7 @@ namespace OPC_UA_Client_Free
 
         public void WriteNode(string id, object value)
         {
-            if (client != null && client.State != CommunicationState.Faulted)
+            if (session != null && session.State != CommunicationState.Faulted)
             {
                 var writeValue = new WriteRequest
                 {
@@ -94,7 +94,7 @@ namespace OPC_UA_Client_Free
                         }
                     }
                 };
-                client.WriteAsync(writeValue);
+                session.WriteAsync(writeValue);
             }
             else
             {
