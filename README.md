@@ -4,7 +4,7 @@
 Поддерживает .NET Core, универсальную платформу Windows (UWP), Windows Presentation Framework (WPF) и приложения Xamarin.
 
 # Настройка проекта
-1. Установите пакет Workstation.UaClientиз Nuget , чтобы получить последнюю версию для вашего проекта hmi.
+1. Установите пакет Workstation.UaClient из [Nuget](https://www.nuget.org/packages/Workstation.UaClient/) , чтобы получить последнюю версию для вашего проекта hmi.
 2. Добавьте в проект наш скрипт OpcClient.cs
 
 # Подключение к серверу OPC
