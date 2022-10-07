@@ -570,11 +570,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\s.zaitsev\\source\\repos\\RobotecOPCExample\\OPC UA Client Free\\OPC UA Client Free.csproj",
+      "projectUniqueName": "C:\\Users\\s.zaitsev\\Documents\\Unity Projects\\Freelance\\RobotecOPCExample\\OPC UA Client Free\\OPC UA Client Free.csproj",
       "projectName": "OPC UA Client Free",
-      "projectPath": "C:\\Users\\s.zaitsev\\source\\repos\\RobotecOPCExample\\OPC UA Client Free\\OPC UA Client Free.csproj",
+      "projectPath": "C:\\Users\\s.zaitsev\\Documents\\Unity Projects\\Freelance\\RobotecOPCExample\\OPC UA Client Free\\OPC UA Client Free.csproj",
       "packagesPath": "C:\\Users\\s.zaitsev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\s.zaitsev\\source\\repos\\RobotecOPCExample\\OPC UA Client Free\\obj\\",
+      "outputPath": "C:\\Users\\s.zaitsev\\Documents\\Unity Projects\\Freelance\\RobotecOPCExample\\OPC UA Client Free\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

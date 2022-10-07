@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPCUAfxExample", "OPCUAfxExample\OPCUAfxExample.csproj", "{7866DA1A-3154-4742-ACE5-6621D74C7BAF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotecOPC_Client", "RobotecOPC_Client\RobotecOPC_Client.csproj", "{48974982-634B-4782-8DD5-5DE6689C628A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPC UA Client Free", "OPC UA Client Free\OPC UA Client Free.csproj", "{F406A92C-4B04-401A-97F1-61E695F2259E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPC UA Client Free", "OPC UA Client Free\OPC UA Client Free.csproj", "{F406A92C-4B04-401A-97F1-61E695F2259E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7866DA1A-3154-4742-ACE5-6621D74C7BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7866DA1A-3154-4742-ACE5-6621D74C7BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7866DA1A-3154-4742-ACE5-6621D74C7BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7866DA1A-3154-4742-ACE5-6621D74C7BAF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48974982-634B-4782-8DD5-5DE6689C628A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48974982-634B-4782-8DD5-5DE6689C628A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48974982-634B-4782-8DD5-5DE6689C628A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48974982-634B-4782-8DD5-5DE6689C628A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F406A92C-4B04-401A-97F1-61E695F2259E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F406A92C-4B04-401A-97F1-61E695F2259E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F406A92C-4B04-401A-97F1-61E695F2259E}.Release|Any CPU.ActiveCfg = Release|Any CPU

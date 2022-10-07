@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 using Workstation.ServiceModel.Ua;
 using Workstation.ServiceModel.Ua.Channels;
 
@@ -10,10 +7,10 @@ namespace OPC_UA_Client_Free
     public class OpcClient
     {
 
-        public event Action connected;
-        public event Action disconnected;
+        public event Action OnConnected;
+        public event Action OnDisconnected;
 
-        public UaTcpSessionChannel session;
+        public UaTcpSessionChannel Session;
 
         public OpcClient(string serverAddress, string userName, string password)
         {
@@ -24,40 +21,40 @@ namespace OPC_UA_Client_Free
                 ApplicationType = ApplicationType.Client
             };
 
-            session = new UaTcpSessionChannel(
+            Session = new UaTcpSessionChannel(
                 clientDescription,
                 null, // no x509 certificates
-                new UserNameIdentity(userName, password), // no user identity
+                new UserNameIdentity(userName, password), // user identity
                 $"opc.tcp://{serverAddress}", // the public endpoint of a server at opcua.rocks.
                 SecurityPolicyUris.None); // no encryption
 
-            session.Opened += SessionOpened;
-            session.Closed += SessionClosed; ;
+            Session.Opened += SessionOpened;
+            Session.Closed += SessionClosed; ;
         }
 
         private void SessionClosed(object sender, EventArgs e)
         {
-            disconnected?.Invoke();
+            OnDisconnected?.Invoke();
         }
 
         private void SessionOpened(object sender, EventArgs e)
         {
-            connected?.Invoke();
+            OnConnected?.Invoke();
         }
 
         public void Connect()
         {
-            session.OpenAsync();
+            Session.OpenAsync();
         }
 
-        public void Disconect()
+        public void Disconnect()
         {
-            session.CloseAsync();
+            Session.CloseAsync();
         }
 
         public object ReadNode(string id)
         {
-            if (session != null && session.State != CommunicationState.Faulted)
+            if (Session != null && Session.State != CommunicationState.Faulted)
             {
                 var readValue = new ReadRequest
                 {
@@ -68,19 +65,18 @@ namespace OPC_UA_Client_Free
                         }
                     }
                 };
-                var readResult = session.ReadAsync(readValue).Result;
+                var readResult = Session.ReadAsync(readValue).Result;
                 return readResult.Results[0].Value;
             }
             else
             {
                 throw new Exception("Client is null or fauler");
-                return null;
             }
         }
 
         public void WriteNode(string id, object value)
         {
-            if (session != null && session.State != CommunicationState.Faulted)
+            if (Session != null && Session.State != CommunicationState.Faulted)
             {
                 var writeValue = new WriteRequest
                 {
@@ -94,7 +90,7 @@ namespace OPC_UA_Client_Free
                         }
                     }
                 };
-                session.WriteAsync(writeValue);
+                Session.WriteAsync(writeValue);
             }
             else
             {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DyGgEcYf/XV9GeMqWOqZERBYipLagWpNfl3DijKdb43Br3uMWFEOeS5B9gE62gCQSuBVsqaqoUQOXa/4P49oAA==",
+  "dgSpecHash": "vjm+Wq0s0bX6xSMMqwAw264E94FfbbFt4HC3tmmSzVfsbKE77o1iX/ZE3V9pBsYemXa3ieyhK878RjcR95xE8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\s.zaitsev\\source\\repos\\RobotecOPCExample\\OPC UA Client Free\\OPC UA Client Free.csproj",
+  "projectFilePath": "C:\\Users\\s.zaitsev\\Documents\\Unity Projects\\Freelance\\RobotecOPCExample\\OPC UA Client Free\\OPC UA Client Free.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\s.zaitsev\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\s.zaitsev\\.nuget\\packages\\microsoft.extensions.configuration.binder\\5.0.0\\microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",
