@@ -9,7 +9,7 @@
 
 # Подключение к серверу OPC
 ```C#
-var client = new OpcClient(IP:PORT", "UserName", "Password");
+var client = new OpcClient("IP:PORT", "UserName", "Password");
 ```
 Подпишитесь на события подключения
 ```C#
