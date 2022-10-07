@@ -8,22 +8,22 @@
 2. Добавьте в проект наш скрипт OpcClient.cs
 
 # Подключение к серверу OPC
-```
+```C#
 var client = new OpcClient(IP:PORT", "UserName", "Password");
 ```
 Подпишитесь на события подключения
-```
+```C#
 client.connected += Client_connected;
 client.disconnected += Client_disconnected;
 client.Connect();
 ```
 
 # Пример чтения ноды 
-```
+```C#
 var pos_x = client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.R1.System.$config.pos_x");
 ```
 # Пример записи ноды 
-```
+```C#
 client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.R1.System.$config.time", 150);
 ```
 
