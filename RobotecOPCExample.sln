@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPC UA Client Free", "OPC UA Client Free\OPC UA Client Free.csproj", "{F406A92C-4B04-401A-97F1-61E695F2259E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotecExample", "RobotecExample1\RobotecExample.csproj", "{88CB8CC0-43C2-4262-9B3A-9FE2B5FF6C44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotecExample1", "RobotecExample1\RobotecExample1.csproj", "{88CB8CC0-43C2-4262-9B3A-9FE2B5FF6C44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

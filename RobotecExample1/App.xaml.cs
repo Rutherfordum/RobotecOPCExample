@@ -13,5 +13,6 @@ namespace RobotecExample1
     /// </summary>
     public partial class App : Application
     {
+        private MainWindow main;
     }
 }

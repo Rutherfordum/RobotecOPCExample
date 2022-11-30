@@ -33,3 +33,5 @@ C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\
 C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.dll
 C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.pdb
 C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.genruntimeconfig.cache
+C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\System.Reactive.dll
+C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\System.Reactive.xml
