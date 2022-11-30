@@ -14,7 +14,6 @@ namespace RobotecExample1
             robot1.IsChecked = true;
             height0.IsChecked = true;
         }
-
         // события нижатий кнопок
         public event Action StartButtonEvent;
         public event Action StopButtonEvent;
