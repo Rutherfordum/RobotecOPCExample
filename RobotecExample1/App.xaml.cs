@@ -13,6 +13,9 @@ namespace RobotecExample1
     /// </summary>
     public partial class App : Application
     {
-        private MainWindow main;
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+          
+        }
     }
 }

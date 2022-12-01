@@ -7,6 +7,10 @@
     public float B;
     public float C;
 
+    public Transform()
+    {
+
+    }
     public Transform(float x, float y, float z, float a, float b, float c)
     {
         X = x;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using RobotecExample1.Controller;
 
 namespace RobotecExample1
 {
@@ -11,9 +12,12 @@ namespace RobotecExample1
         public MainWindow()
         {
             InitializeComponent();
+            RobotecController controller = new RobotecController(this);
             robot1.IsChecked = true;
             height0.IsChecked = true;
+            controller.Update();
         }
+
         // события нижатий кнопок
         public event Action StartButtonEvent;
         public event Action StopButtonEvent;
