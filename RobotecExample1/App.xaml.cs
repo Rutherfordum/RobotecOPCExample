@@ -15,7 +15,6 @@ namespace RobotecExample1
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-          
         }
     }
 }

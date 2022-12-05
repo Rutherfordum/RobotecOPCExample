@@ -35,3 +35,40 @@ C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\
 C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.g.resources
 C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.dll
 C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.pdb
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\RobotecExample.exe
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\RobotecExample.deps.json
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\RobotecExample.runtimeconfig.json
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\RobotecExample.runtimeconfig.dev.json
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\RobotecExample.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\RobotecExample.pdb
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\System.Threading.Tasks.Dataflow.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\Workstation.UaClient.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\System.Reactive.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\netcoreapp3.1\System.Reactive.xml
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample1.csproj.AssemblyReference.cache
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample_MarkupCompile.cache
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample_MarkupCompile.lref
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.g.resources
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample1.AssemblyInfoInputs.cache
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample1.AssemblyInfo.cs
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample1.csproj.CoreCompileInputs.cache
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample1.csproj.CopyComplete
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample.pdb
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\netcoreapp3.1\RobotecExample1.genruntimeconfig.cache

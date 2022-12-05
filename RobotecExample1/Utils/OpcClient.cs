@@ -59,12 +59,13 @@ public class OpcClient
                 NodesToRead = new[] {
                         new ReadValueId {
                             NodeId = NodeId.Parse(id),
-                            AttributeId = AttributeIds.Value
+                            //AttributeId = AttributeIds.Value
                         }
                     }
             };
+
             var readResult = Session.ReadAsync(readValue).Result;
-            return readResult.Results[0].Value;
+            return readResult.Results[0].Value ?? 0;
         }
         else
         {

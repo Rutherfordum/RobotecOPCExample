@@ -15,10 +15,8 @@ namespace RobotecExample1
             RobotecController controller = new RobotecController(this);
             robot1.IsChecked = true;
             height0.IsChecked = true;
-            controller.Update();
         }
 
-        // события нижатий кнопок
         public event Action StartButtonEvent;
         public event Action StopButtonEvent;
         public event Action ClearButtonEvent;
@@ -27,6 +25,8 @@ namespace RobotecExample1
         public event Action ManualControlButtonEvent;
         public event Action ConnectButtonEvent;
         public event Action DisconnectButtonEvent;
+        public event Action SendDataButtonEvent;
+
 
         /// <summary>
         /// Устанавлливает значения позиций робота в интерфейс
@@ -42,6 +42,10 @@ namespace RobotecExample1
             currentC.Text = transform.C.ToString();
         }
 
+        /// <summary>
+        /// Устанавливаем статус подклюения
+        /// </summary>
+        /// <param name="value"></param>
         public void SetConnectStatus(bool value)
         {
             connectStatus.Text = value ? "Connected" : "Disconnected";
@@ -164,6 +168,11 @@ namespace RobotecExample1
         private void ManualControlButton_OnClickButton_Click(object sender, RoutedEventArgs e)
         {
             ManualControlButtonEvent?.Invoke();
+        }
+
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            SendDataButtonEvent?.Invoke();
         }
 
         #endregion
