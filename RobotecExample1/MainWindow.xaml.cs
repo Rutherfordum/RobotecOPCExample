@@ -42,6 +42,11 @@ namespace RobotecExample1
             currentC.Text = transform.C.ToString();
         }
 
+        public void SetConnectStatus(bool value)
+        {
+            connectStatus.Text = value ? "Connected" : "Disconnected";
+        }
+
         /// <summary>
         /// Устанавлливает значения позиций робота в интерфейс
         /// </summary>

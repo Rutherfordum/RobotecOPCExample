@@ -107,6 +107,7 @@
         <Button x:Name="PauseStartButton" Content="Пауза/Продолжить" HorizontalAlignment="Left" Margin="472,325,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="PauseStartButton_OnClickButton_Click"/>
         <Button x:Name="HomeButton" Content="Домой" HorizontalAlignment="Left" Margin="472,355,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="HomeButton_OnClickButton_Click"/>
         <Button x:Name="ManualControlButton" Content="Руч. Управление" HorizontalAlignment="Left" Margin="577,355,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="ManualControlButton_OnClickButton_Click"/>
+        <TextBox x:Name="connectStatus" HorizontalAlignment="Left" Margin="233,89,0,0" Text="status" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnlyCaretVisible="True"/>
 
     </Grid>
 </Window>
