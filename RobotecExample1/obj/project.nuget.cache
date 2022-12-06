@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "b1dtVqTyDad+5YsTkjEC8tBIf83kD3hRKNK/Rd6tRsx4UT/Jv0pw9RlWI8gSC64462b4//Z0rYjknfNkxuxGCA==",
+  "dgSpecHash": "umKv7DlcJzuXOW9elHe5gFteYWGoxe5HKf1glNLamAgZpWotdoMmYekZuTIDkN/5meXsBKOPByl+UCKwmle2Pw==",
   "success": true,
   "projectFilePath": "C:\\Users\\s.zaitsev\\Documents\\Unity Projects\\Robotec OPC\\RobotecOPCExample\\RobotecExample1\\RobotecExample1.csproj",
   "expectedPackageFiles": [
@@ -15,12 +15,10 @@
     "C:\\Users\\s.zaitsev\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\s.zaitsev\\.nuget\\packages\\microsoft.io.recyclablememorystream\\2.0.0\\microsoft.io.recyclablememorystream.2.0.0.nupkg.sha512",
     "C:\\Users\\s.zaitsev\\.nuget\\packages\\portable.bouncycastle\\1.8.10\\portable.bouncycastle.1.8.10.nupkg.sha512",
-    "C:\\Users\\s.zaitsev\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
     "C:\\Users\\s.zaitsev\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
     "C:\\Users\\s.zaitsev\\.nuget\\packages\\system.threading.tasks.dataflow\\5.0.0\\system.threading.tasks.dataflow.5.0.0.nupkg.sha512",
     "C:\\Users\\s.zaitsev\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\s.zaitsev\\.nuget\\packages\\workstation.uaclient\\3.1.1\\workstation.uaclient.3.1.1.nupkg.sha512",
-    "C:\\Users\\s.zaitsev\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+    "C:\\Users\\s.zaitsev\\.nuget\\packages\\workstation.uaclient\\3.1.1\\workstation.uaclient.3.1.1.nupkg.sha512"
   ],
   "logs": []
 }
