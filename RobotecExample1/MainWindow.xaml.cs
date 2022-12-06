@@ -27,6 +27,7 @@ namespace RobotecExample1
         public event Action DisconnectButtonEvent;
         public event Action SendDataButtonEvent;
 
+        private bool[] _cells;
 
         /// <summary>
         /// Устанавлливает значения позиций робота в интерфейс
@@ -116,7 +117,7 @@ namespace RobotecExample1
         /// <returns></returns>
         public bool[] GetCurrentSelectedCells()
         {
-            return new bool[]
+            _cells = new bool[]
             {
                 (bool) checkbox0.IsChecked, (bool) checkbox1.IsChecked, (bool) checkbox2.IsChecked,(bool) checkbox3.IsChecked,(bool) checkbox4.IsChecked,(bool) checkbox5.IsChecked,
                 (bool) checkbox6.IsChecked, (bool) checkbox7.IsChecked, (bool) checkbox8.IsChecked,(bool) checkbox9.IsChecked,(bool) checkbox10.IsChecked,(bool) checkbox11.IsChecked,
@@ -124,8 +125,18 @@ namespace RobotecExample1
                 (bool) checkbox18.IsChecked, (bool) checkbox19.IsChecked, (bool) checkbox20.IsChecked,(bool) checkbox21.IsChecked,(bool) checkbox22.IsChecked,(bool) checkbox23.IsChecked,
                 (bool) checkbox24.IsChecked, (bool) checkbox25.IsChecked, (bool) checkbox26.IsChecked,(bool) checkbox27.IsChecked,(bool) checkbox28.IsChecked,(bool) checkbox29.IsChecked,
                 (bool) checkbox30.IsChecked, (bool) checkbox31.IsChecked, (bool) checkbox32.IsChecked,(bool) checkbox33.IsChecked,(bool) checkbox34.IsChecked,(bool) checkbox35.IsChecked,
-
             };
+            return _cells;
+        }
+
+        public void ResetCells()
+        {
+            _cells = new bool[GetCurrentSelectedCells().Length+1];
+        }
+
+        public void ResetHeight()
+        {
+            height0.IsChecked = true;
         }
 
         #region private methods

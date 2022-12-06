@@ -7,6 +7,8 @@ public class OpcClient
 
     public event Action OnConnected;
     public event Action OnDisconnected;
+    public event Action OnFaulted;
+
 
     public UaTcpSessionChannel Session;
 
@@ -27,7 +29,13 @@ public class OpcClient
             SecurityPolicyUris.None); // no encryption
 
         Session.Opened += SessionOpened;
-        Session.Closed += SessionClosed; ;
+        Session.Faulted += SessionFaulted; 
+        Session.Closed += SessionClosed; 
+    }
+
+    private void SessionFaulted(object sender, EventArgs e)
+    {
+        OnFaulted?.Invoke();
     }
 
     private void SessionClosed(object sender, EventArgs e)

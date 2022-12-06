@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using RobotecExample1.Utils;
 using Workstation.ServiceModel.Ua;
+using DispatcherPriority = System.Windows.Threading.DispatcherPriority;
 
+// проверка с null при чтение позиций 
 namespace RobotecExample1.Controller
 {
     public class RobotecController
@@ -15,129 +20,176 @@ namespace RobotecExample1.Controller
         public RobotecController(MainWindow view)
         {
             _view = view;
-            _view.ConnectButtonEvent += _view_ConnectButtonEvent;
-            _view.DisconnectButtonEvent += _view_DisconnectButtonEvent;
-            _view.SendDataButtonEvent += _view_SendDataButtonEvent;
-            _view.HomeButtonEvent += _view_HomeButtonEvent;
-            _view.ClearButtonEvent += _view_ClearButtonEvent;
-            _view.PauseStartButtonEvent += _view_PauseStartButtonEvent;
-            _view.StartButtonEvent += _view_StartButtonEvent;
-            _view.StopButtonEvent += _view_StopButtonEvent;
+            _view.StartButtonEvent += Start;
+            _view.StopButtonEvent += Stop;
+            _view.ClearButtonEvent += Clear;
+            _view.HomeButtonEvent += MoveRobotToHome;
+            _view.PauseStartButtonEvent += Pause;
+            _view.ConnectButtonEvent += Connect;
+            _view.DisconnectButtonEvent += Disconnect;
+            _view.SendDataButtonEvent += SendDataToRobot;
         }
 
-        private void _view_StopButtonEvent()
+        public void ResetData()
         {
-            if (_client.Session.State == CommunicationState.Opened)
+
+            if (_client.Session.State != CommunicationState.Opened)
+                return;
+
+            _view.ResetCells();
+            _view.ResetHeight();
+
+            _client.WriteNode(RobotecData.R_STOP, false);
+            _client.WriteNode(RobotecData.R_START, false);
+            _client.WriteNode(RobotecData.R_HOLD, false);
+            _client.WriteNode(RobotecData.MOV_HOME, false);
+            _client.WriteNode(RobotecData.D_FINISH, false);
+            _client.WriteNode(RobotecData.R_ALM, false);
+            _client.WriteNode(RobotecData.R_MOV_XYZ, false);
+            //  _client.WriteNode(RobotecData.IA_ACKPARAM, false);
+            _client.WriteNode(RobotecData.R_PARAM_PORT, 0000);
+            _client.WriteNode(RobotecData.R_PARAM_ID, 0);
+            _client.WriteNode(RobotecData.R_PARAM_HEIGHT, 0);
+            _client.WriteNode(RobotecData.R_PARAM_POS_ID, 0);
+            SendCellsMatrix(new bool[_view.GetCurrentSelectedCells().Length+1]);
+        }
+
+        private void Clear()
+        {
+            ResetData();
+        }
+
+        private void Stop()
+        {
+            if (_client.Session.State != CommunicationState.Opened)
+                return;
+
+            _client.WriteNode(RobotecData.R_STOP, true);
+            Thread.Sleep(1000);
+            _client.WriteNode(RobotecData.R_STOP, false);
+        }
+
+        private void Start()
+        {
+            SendDataToRobot();
+            _client.WriteNode(RobotecData.R_START, true);
+            Thread.Sleep(1000);
+            _client.WriteNode(RobotecData.R_START, false);
+
+            MessageBoxResult result = MessageBox.Show("Запустить измерения", "", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+
+            switch (result)
             {
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_R_STOP", true);
-                Thread.Sleep(1000);
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_R_STOP", false);
+                case MessageBoxResult.Yes:
+                    {
+                        if (_client.Session.State != CommunicationState.Opened)
+                            return;
+
+                        _client.WriteNode(RobotecData.IA_ACKPARAM, true);
+                        Thread.Sleep(1000);
+                        _client.WriteNode(RobotecData.IA_ACKPARAM, false);
+                        break;
+                    }
+                case MessageBoxResult.No:
+                    break;
             }
         }
 
-        private void _view_StartButtonEvent()
+        private void Pause()
         {
-            if (_client.Session.State == CommunicationState.Opened)
+            if (_client.Session.State != CommunicationState.Opened)
+                return;
+
+            _client.WriteNode(RobotecData.R_HOLD, true);
+            Thread.Sleep(1000);
+            _client.WriteNode(RobotecData.R_HOLD, false);
+        }
+
+        private void MoveRobotToHome()
+        {
+            if (_client.Session.State != CommunicationState.Opened)
+                return;
+
+            _client.WriteNode(RobotecData.MOV_HOME, true);
+            Thread.Sleep(1000);
+            _client.WriteNode(RobotecData.MOV_HOME, false);
+        }
+
+        private void SendDataToRobot()
+        {
+            if (_client.Session.State != CommunicationState.Opened)
+                return;
+
+            _client.WriteNode(RobotecData.R_PARAM_PORT, 4840);
+            _client.WriteNode(RobotecData.R_PARAM_ID, _view.GetCurrentSelectedRobot());
+            _client.WriteNode(RobotecData.R_PARAM_HEIGHT, (Int32)_view.GetCurrentSelectedHeight());
+            SendCellsMatrix(_view.GetCurrentSelectedCells());
+        }
+
+        private void SendCellsMatrix(bool[] matrix)
+        {
+            if (_client.Session.State != CommunicationState.Opened)
+                return;
+
+            int j = 0;
+            bool[] matrixCells = matrix;
+
+            for (int i = 0; i < matrixCells.Length; i++)
             {
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_R_START", true);
-                Thread.Sleep(1000);
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_R_START", false);
+                j = i + 1;
+                bool value = matrixCells[i];
+                _client.WriteNode(
+                    $"{RobotecData.Sample_Matrix_elem}{j}", value);
             }
         }
 
-        private void _view_PauseStartButtonEvent()
-        {
-            if (_client.Session.State == CommunicationState.Opened)
-            {
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_R_HOLD", true);
-                Thread.Sleep(1000);
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_R_HOLD", false);
-            }
-        }
-
-        private void _view_ClearButtonEvent()
-        {
-
-        }
-
-        private void _view_HomeButtonEvent()
-        {
-            if (_client.Session.State == CommunicationState.Opened)
-            {
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_MOV_HOME", true);
-                Thread.Sleep(1000);
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_MOV_HOME", false);
-            }
-        }
-
-        private void _view_SendDataButtonEvent()
-        {
-            if (_client.Session.State == CommunicationState.Opened)
-            {
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.I_R_PARAM.CONN_PORT",
-                    4840);
-
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.I_R_PARAM.ROB_ID",
-                    _view.GetCurrentSelectedRobot());
-
-                _client.WriteNode("ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.I_R_PARAM.SAMPLE_HEIGHT",
-                    (Int32)_view.GetCurrentSelectedHeight());
-
-
-
-                int j = 0;
-                bool[] matrixCells = _view.GetCurrentSelectedCells();
-
-                for (int i = 0; i < matrixCells.Length; i++)
-                {
-                    j = i + 1;
-                    bool value = matrixCells[i];
-                    _client.WriteNode(
-                        $"ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.Sample Matrix elem{j}",
-                        value);
-                }
-            }
-
-        }
-
-        private void _view_DisconnectButtonEvent()
+        private void Disconnect()
         {
             _client?.Disconnect();
             _view.SetConnectStatus(false);
         }
 
-        //Подключение к роботу
-        private void _view_ConnectButtonEvent()
+        private async void Connect()
         {
             try
             {
-                _client?.Disconnect();
+                if (_client != null)
+                    _client?.Disconnect();
+
+                _view.connectStatus.Text = "Connection...";
 
                 switch (_view.GetCurrentSelectedRobot())
                 {
                     case 1:
-                        _client = new OpcClient("172.31.1.147:4840", "OpcUaOperator", "kuka");
+                        _client = new OpcClient($"{RobotecData.IP1}:{RobotecData.PORT1}", RobotecData.User,
+                            RobotecData.Password);
                         break;
-
 
                     case 2:
-                        _client = new OpcClient("10.91.75.144:4840", "OpcUaOperator", "kuka");
+                        _client = new OpcClient($"{RobotecData.IP2}:{RobotecData.PORT2}", RobotecData.User,
+                            RobotecData.Password);
                         break;
-
 
                     case 3:
-                        _client = new OpcClient("10.91.75.144:4840", "OpcUaOperator", "kuka");
+                        _client = new OpcClient($"{RobotecData.IP3}:{RobotecData.PORT3}", RobotecData.User,
+                            RobotecData.Password);
                         break;
 
-
                     case 4:
-                        _client = new OpcClient("10.91.75.144:4840", "OpcUaOperator", "kuka");
+                        _client = new OpcClient($"{RobotecData.IP4}:{RobotecData.PORT4}", RobotecData.User,
+                            RobotecData.Password);
                         break;
                 }
 
-                _client?.Connect();
-                _view.SetConnectStatus(true);
-                Update();
+                await Task.Run(() =>
+                {
+                    _client.OnConnected += Connected;
+                    _client.OnDisconnected += Disconnected;
+                    _client.OnFaulted += Faulted;
+
+                    if (_client != null)
+                        _client?.Connect();
+                });
             }
             catch (Exception e)
             {
@@ -145,52 +197,96 @@ namespace RobotecExample1.Controller
             }
         }
 
-        public void Update()
+        private void Disconnected()
         {
-            /* if (_client == null) return;
+            _view.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+            {
+                _view.SetConnectStatus(false);
+            });
+        }
 
-             while ((_client.Session.State != CommunicationState.Faulted ||
-                         _client.Session.State != CommunicationState.Closed)
-                        && (_client.Session.State == CommunicationState.Opened ||
-                            _client.Session.State == CommunicationState.Opening))
+        private void Connected()
+        {
+            _view.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+            {
+                _view.SetConnectStatus(true);
+                ResetData();
+            });
+        }
 
-             {
-                 Thread.Sleep(5000);
-                 {
-                     #region CurrentTransform
+        private void Faulted()
+        {
+            _view.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+            {
+                _view.SetConnectStatus(false);
+            });
+        }
 
-                     if (_currentTransform == null)
-                         _currentTransform = new Transform();
+        private void TransformToView()
+        {
+            Thread.Sleep(5000);
 
-                     _currentTransform.X = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_ACT.X");
-                     _currentTransform.Y = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_ACT.Y");
-                     _currentTransform.Z = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_ACT.Z");
-                     _currentTransform.A = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_ACT.A");
-                     _currentTransform.B = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_ACT.B");
-                     _currentTransform.C = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_ACT.C");
+            if (_client == null) return;
 
-                     _view.SetActualTransform(_currentTransform);
+            while ((_client.Session.State != CommunicationState.Faulted ||
+                    _client.Session.State != CommunicationState.Closed)
+                   && (_client.Session.State == CommunicationState.Opened ||
+                       _client.Session.State == CommunicationState.Opening))
 
-                     #endregion
+            {
+                Thread.Sleep(5000);
 
-                     #region TragetTransform
+                _view.SetActualTransform(Read_POS_ACT());
+                _view.SetTargetTransform(Read_POS_TARGET());
+            }
+        }
 
-                     if (_targetTransform == null)
-                         _targetTransform = new Transform();
+        private Transform Read_POS_ACT()
+        {
+            if (_client.Session.State != CommunicationState.Opened)
+                return new Transform(0, 0, 0, 0, 0, 0);
 
-                     _targetTransform.X = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_FOR.X");
-                     _targetTransform.Y = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_FOR.Y");
-                     _targetTransform.Z = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_FOR.Z");
-                     _targetTransform.A = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_FOR.A");
-                     _targetTransform.B = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_FOR.B");
-                     _targetTransform.C = (float)(double)_client.ReadNode("ns=5;s=MotionDeviceSystem.ProcessData.System.R1.$POS_FOR.C");
+            if (_currentTransform == null)
+                _currentTransform = new Transform();
 
-                     _view.SetTargetTransform(_targetTransform);
+            _currentTransform.X =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_ACT}.X");
+            _currentTransform.Y =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_ACT}.Y");
+            _currentTransform.Z =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_ACT}.Z");
+            _currentTransform.A =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_ACT}.A");
+            _currentTransform.B =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_ACT}.B");
+            _currentTransform.C =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_ACT}.C");
 
-                     #endregion
-                 }
-             */
+            return _currentTransform;
+        }
 
+        private Transform Read_POS_TARGET()
+        {
+            if (_client.Session.State != CommunicationState.Opened)
+                return new Transform(0, 0, 0, 0, 0, 0);
+
+            if (_targetTransform == null)
+                _targetTransform = new Transform();
+
+            _targetTransform.X =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.X");
+            _targetTransform.Y =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.Y");
+            _targetTransform.Z =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.Z");
+            _targetTransform.A =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.A");
+            _targetTransform.B =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.B");
+            _targetTransform.C =
+                (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.C");
+
+            return _targetTransform;
         }
     }
 }
