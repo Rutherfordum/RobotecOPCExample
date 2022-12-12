@@ -15,6 +15,7 @@ namespace RobotecExample1
             RobotecController controller = new RobotecController(this);
             robot1.IsChecked = true;
             height0.IsChecked = true;
+            ResizeMode = ResizeMode.NoResize;
         }
 
         public event Action StartButtonEvent;
@@ -25,7 +26,9 @@ namespace RobotecExample1
         public event Action ManualControlButtonEvent;
         public event Action ConnectButtonEvent;
         public event Action DisconnectButtonEvent;
-        public event Action SendDataButtonEvent;
+        public event Action FinishButtonEvent;
+        public event Action ResetErrorButtonEvent;
+
 
         private bool[] _cells;
 
@@ -181,11 +184,16 @@ namespace RobotecExample1
             ManualControlButtonEvent?.Invoke();
         }
 
-        private void SendButton_Click(object sender, RoutedEventArgs e)
+        private void FinishButton_Click(object sender, RoutedEventArgs e)
         {
-            SendDataButtonEvent?.Invoke();
+            FinishButtonEvent?.Invoke();
         }
 
         #endregion
+
+        private void resetErrorButton_Click(object sender, RoutedEventArgs e)
+        {
+            ResetErrorButtonEvent?.Invoke();
+        }
     }
 }

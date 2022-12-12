@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RobotecExample1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="RobotecExample" Height="450" Width="800">
     <Grid>
         <Grid HorizontalAlignment="Left" Margin="14,71,0,0" VerticalAlignment="Top">
             <GroupBox Header="№ робота" Height="120" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -27,53 +27,53 @@
         </Grid>
         <GroupBox Header="Заполненные ячейки" Height="165" Width="165" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="573,77,0,0"/>
         <Label Content="A" HorizontalAlignment="Left" Margin="593,91,0,0" VerticalAlignment="Top"/>
-        <Label Content="1" HorizontalAlignment="Left" Margin="577,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="6" HorizontalAlignment="Left" Margin="577,106,0,0" VerticalAlignment="Top"/>
         <Label Content="B" HorizontalAlignment="Left" Margin="615,91,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox0" Content="" Margin="594,112,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox1" Content="" Margin="616,112,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox0" Content="" Margin="594,216,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox1" Content="" Margin="616,216,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="C" HorizontalAlignment="Left" Margin="637,91,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox2" Content="" Margin="638,112,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox2" Content="" Margin="638,216,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="D" HorizontalAlignment="Left" Margin="659,91,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox3" Content="" Margin="660,112,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox3" Content="" Margin="660,216,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="E" HorizontalAlignment="Left" Margin="681,91,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox4" Content="" Margin="682,112,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox4" Content="" Margin="682,216,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="F" HorizontalAlignment="Left" Margin="703,91,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox5" Content="" Margin="704,112,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="2" HorizontalAlignment="Left" Margin="577,127,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox6" Content="" Margin="594,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox7" Content="" Margin="616,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox8" Content="" Margin="638,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox9" Content="" Margin="660,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox10" Content="" Margin="682,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox11" Content="" Margin="704,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="3" HorizontalAlignment="Left" Margin="577,148,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox12" Content="" Margin="594,154,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox13" Content="" Margin="616,154,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox14" Content="" Margin="638,154,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox15" Content="" Margin="660,154,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox16" Content="" Margin="682,154,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox17" Content="" Margin="704,154,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="4" HorizontalAlignment="Left" Margin="577,169,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox18" Content="" Margin="594,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox19" Content="" Margin="616,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox20" Content="" Margin="638,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox21" Content="" Margin="660,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox22" Content="" Margin="682,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox23" Content="" Margin="704,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="5" HorizontalAlignment="Left" Margin="577,190,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox24" Content="" Margin="594,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox25" Content="" Margin="616,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox26" Content="" Margin="638,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox27" Content="" Margin="660,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox28" Content="" Margin="682,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox29" Content="" Margin="704,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="6" HorizontalAlignment="Left" Margin="577,211,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox30" Content="" Margin="594,217,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox31" Content="" Margin="616,217,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox32" Content="" Margin="638,217,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox33" Content="" Margin="660,217,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox34" Content="" Margin="682,217,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox35" Content="" Margin="704,217,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox5" Content="" Margin="704,217,0,0" Width="28" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="5" HorizontalAlignment="Left" Margin="577,127,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox6" Content="" Margin="594,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox7" Content="" Margin="616,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox8" Content="" Margin="638,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox9" Content="" Margin="660,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox10" Content="" Margin="682,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox11" Content="" Margin="704,196,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="4" HorizontalAlignment="Left" Margin="577,148,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox12" Content="" Margin="594,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox13" Content="" Margin="616,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox14" Content="" Margin="638,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox15" Content="" Margin="660,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox16" Content="" Margin="682,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox17" Content="" Margin="704,175,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="3" HorizontalAlignment="Left" Margin="577,169,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox18" Content="" Margin="594,153,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox19" Content="" Margin="616,153,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox20" Content="" Margin="638,153,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox21" Content="" Margin="660,153,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox22" Content="" Margin="682,153,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox23" Content="" Margin="704,153,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="2" HorizontalAlignment="Left" Margin="577,190,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox24" Content="" Margin="594,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox25" Content="" Margin="616,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox26" Content="" Margin="638,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox27" Content="" Margin="660,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox28" Content="" Margin="682,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox29" Content="" Margin="704,133,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="1" HorizontalAlignment="Left" Margin="577,211,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox30" Content="" Margin="594,113,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox31" Content="" Margin="616,113,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox32" Content="" Margin="638,113,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox33" Content="" Margin="660,113,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox34" Content="" Margin="682,113,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox35" Content="" Margin="704,113,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <GroupBox Header="Актуальные координаты" Height="105" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,285,0,0"/>
         <TextBox x:Name="currentX" HorizontalAlignment="Left" Margin="79,310,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
         <Label Content="X" HorizontalAlignment="Left" Margin="57,306,0,0" VerticalAlignment="Top"/>
@@ -108,7 +108,8 @@
         <Button x:Name="HomeButton" Content="Домой" HorizontalAlignment="Left" Margin="472,355,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="HomeButton_OnClickButton_Click"/>
         <Button x:Name="ManualControlButton" Content="Руч. Управление" HorizontalAlignment="Left" Margin="577,355,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="ManualControlButton_OnClickButton_Click"/>
         <TextBox x:Name="connectStatus" HorizontalAlignment="Left" Margin="233,89,0,0" Text="status" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnlyCaretVisible="True"/>
-        <Button x:Name="sendButton" Content="Отправить данные" HorizontalAlignment="Left" Margin="502,256,0,0" VerticalAlignment="Top" Height="27" Width="144" Click="SendButton_Click"/>
+        <Button x:Name="finishButton" Content="Завершить измерения" HorizontalAlignment="Left" Margin="502,256,0,0" VerticalAlignment="Top" Height="27" Width="144" Click="FinishButton_Click"/>
+        <Button x:Name="resetErrorButton" Content="Сброс ошибки" HorizontalAlignment="Left" Margin="682,355,0,0" VerticalAlignment="Top" Width="100" Height="24" Click="resetErrorButton_Click"/>
 
     </Grid>
 </Window>

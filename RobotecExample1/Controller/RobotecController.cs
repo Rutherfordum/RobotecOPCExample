@@ -27,12 +27,43 @@ namespace RobotecExample1.Controller
             _view.PauseStartButtonEvent += Pause;
             _view.ConnectButtonEvent += Connect;
             _view.DisconnectButtonEvent += Disconnect;
-            _view.SendDataButtonEvent += SendDataToRobot;
+            _view.FinishButtonEvent += Finish;
+            _view.ManualControlButtonEvent += ManualControl;
+            _view.ResetErrorButtonEvent += ResetError;
+        }
+
+        private void ResetError()
+        {
+            if (_client.Session.State != CommunicationState.Opened)
+                return;
+
+            _client.WriteNode(RobotecData.RESET_ERR, true);
+            Thread.Sleep(1000);
+            _client.WriteNode(RobotecData.RESET_ERR, false);
+        }
+
+        private void Finish()
+        {
+            if (_client.Session.State != CommunicationState.Opened)
+                return;
+
+            _client.WriteNode(RobotecData.D_FINISH, true);
+            Thread.Sleep(1000);
+            _client.WriteNode(RobotecData.D_FINISH, false);
+
+            MessageBox.Show("Измерение завершено", "", MessageBoxButton.OK);
+        }
+
+        private void ManualControl()
+        {
+            _client.WriteNode(RobotecData.PG_TASK, RobotecData.TASK[Enum_PG_TASK.MANUAL_JOG_DELTA]);
+            Thread.Sleep(1000);
+            _client.WriteNode(RobotecData.PG_TASK, RobotecData.TASK[Enum_PG_TASK.NOTASK]);
+            MessageBoxCustom(RobotecData.MANUAL_CONTROL, RobotecData.R_STOP, "Перейти в ручное управление?");
         }
 
         public void ResetData()
         {
-
             if (_client.Session.State != CommunicationState.Opened)
                 return;
 
@@ -46,12 +77,11 @@ namespace RobotecExample1.Controller
             _client.WriteNode(RobotecData.D_FINISH, false);
             _client.WriteNode(RobotecData.R_ALM, false);
             _client.WriteNode(RobotecData.R_MOV_XYZ, false);
-            //  _client.WriteNode(RobotecData.IA_ACKPARAM, false);
             _client.WriteNode(RobotecData.R_PARAM_PORT, 0000);
             _client.WriteNode(RobotecData.R_PARAM_ID, 0);
-            _client.WriteNode(RobotecData.R_PARAM_HEIGHT, 0);
+            _client.WriteNode(RobotecData.R_PARAM_HEIGHT, (double)2.5);
             _client.WriteNode(RobotecData.R_PARAM_POS_ID, 0);
-            SendCellsMatrix(new bool[_view.GetCurrentSelectedCells().Length+1]);
+            SendCellsMatrix(new bool[_view.GetCurrentSelectedCells().Length + 1]);
         }
 
         private void Clear()
@@ -63,46 +93,25 @@ namespace RobotecExample1.Controller
         {
             if (_client.Session.State != CommunicationState.Opened)
                 return;
-
-            _client.WriteNode(RobotecData.R_STOP, true);
-            Thread.Sleep(1000);
-            _client.WriteNode(RobotecData.R_STOP, false);
+            MessageBoxCustom(RobotecData.R_STOP, "", "Остановить?");
         }
 
         private void Start()
         {
             SendDataToRobot();
-            _client.WriteNode(RobotecData.R_START, true);
+            _client.WriteNode(RobotecData.PG_TASK, RobotecData.TASK[Enum_PG_TASK.MAIN]);
             Thread.Sleep(1000);
-            _client.WriteNode(RobotecData.R_START, false);
-
-            MessageBoxResult result = MessageBox.Show("Запустить измерения", "", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
-
-            switch (result)
-            {
-                case MessageBoxResult.Yes:
-                    {
-                        if (_client.Session.State != CommunicationState.Opened)
-                            return;
-
-                        _client.WriteNode(RobotecData.IA_ACKPARAM, true);
-                        Thread.Sleep(1000);
-                        _client.WriteNode(RobotecData.IA_ACKPARAM, false);
-                        break;
-                    }
-                case MessageBoxResult.No:
-                    break;
-            }
+            _client.WriteNode(RobotecData.PG_TASK, RobotecData.TASK[Enum_PG_TASK.NOTASK]);
+            MessageBoxCustom(RobotecData.R_START, RobotecData.R_STOP, "Начать измерения?");
         }
 
         private void Pause()
         {
             if (_client.Session.State != CommunicationState.Opened)
                 return;
-
-            _client.WriteNode(RobotecData.R_HOLD, true);
+            bool isPause = (bool)_client.ReadNode(RobotecData.R_HOLD);
             Thread.Sleep(1000);
-            _client.WriteNode(RobotecData.R_HOLD, false);
+            _client.WriteNode(RobotecData.R_HOLD, !isPause);
         }
 
         private void MoveRobotToHome()
@@ -110,9 +119,11 @@ namespace RobotecExample1.Controller
             if (_client.Session.State != CommunicationState.Opened)
                 return;
 
-            _client.WriteNode(RobotecData.MOV_HOME, true);
+            _client.WriteNode(RobotecData.PG_TASK, RobotecData.TASK[Enum_PG_TASK.RETURN_HOME]);
             Thread.Sleep(1000);
-            _client.WriteNode(RobotecData.MOV_HOME, false);
+            _client.WriteNode(RobotecData.PG_TASK, RobotecData.TASK[Enum_PG_TASK.NOTASK]);
+
+            MessageBoxCustom(RobotecData.MOV_HOME, "", "Вернуть робота в положение домой?");
         }
 
         private void SendDataToRobot()
@@ -282,11 +293,38 @@ namespace RobotecExample1.Controller
             _targetTransform.A =
                 (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.A");
             _targetTransform.B =
-                (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.B");
+          (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.B");
             _targetTransform.C =
                 (float)(double)_client.ReadNode($"{RobotecData.POS_FOR}.C");
 
             return _targetTransform;
+        }
+
+        private void MessageBoxCustom(string nodeYes, string nodeNo, string label)
+        {
+            MessageBoxResult result = MessageBox.Show(label, "", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    {
+                        if (_client.Session.State != CommunicationState.Opened)
+                            return;
+                        _client.WriteNode(nodeYes, true);
+                        Thread.Sleep(1000);
+                        _client.WriteNode(nodeYes, false);
+                        break;
+                    }
+                case MessageBoxResult.No:
+                    {
+                        if (_client.Session.State != CommunicationState.Opened)
+                            return;
+                        _client.WriteNode(nodeNo, true);
+                        Thread.Sleep(1000);
+                        _client.WriteNode(nodeNo, false);
+                        break;
+                    }
+            }
         }
     }
 }
