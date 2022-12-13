@@ -21,4 +21,8 @@
     <Resource Include="Resources\Images\2560px-IU_logo.svg.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Data\" />
+  </ItemGroup>
+
 </Project>

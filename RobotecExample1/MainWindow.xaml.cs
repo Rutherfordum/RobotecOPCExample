@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Windows;
-using RobotecExample1.Controller;
+using System.Windows.Controls;
+using System.Windows.Input;
+using RobotecExample.Controller;
+using RobotecExample.Utils;
 
-namespace RobotecExample1
+namespace RobotecExample
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -12,10 +15,15 @@ namespace RobotecExample1
         public MainWindow()
         {
             InitializeComponent();
-            RobotecController controller = new RobotecController(this);
+            RobotecController controller = new RobotecController(this, new RobotecModel());
             robot1.IsChecked = true;
             height0.IsChecked = true;
             ResizeMode = ResizeMode.NoResize;
+            positionToggle.Checked += PositionToggle_Checked;
+            matrixToggle.Checked += MatrixToggle_Checked;
+            matrixToggle.IsChecked = true;
+            fromCell.MaxLength = 2;
+            toCell.MaxLength = 2;
         }
 
         public event Action StartButtonEvent;
@@ -29,8 +37,22 @@ namespace RobotecExample1
         public event Action FinishButtonEvent;
         public event Action ResetErrorButtonEvent;
 
+        private CheckBox[] _checkBoxes;
 
-        private bool[] _cells;
+        public int FromCell => int.Parse(fromCell.Text);
+        public int ToCell => int.Parse(toCell.Text);
+
+        public Transform GetManualTransformMoving()
+        {
+            var x = float.Parse(moveX.Text);
+            var y = float.Parse(moveY.Text);
+            var z = float.Parse(moveZ.Text);
+            var a = float.Parse(moveA.Text);
+            var b = float.Parse(moveB.Text);
+            var c = float.Parse(moveC.Text);
+
+            return new Transform(x,y,z,a,b,c);
+        }
 
         /// <summary>
         /// Устанавлливает значения позиций робота в интерфейс
@@ -73,7 +95,7 @@ namespace RobotecExample1
         /// Возвращает выбранного робота пользователь на GUI
         /// </summary>
         /// <returns></returns>
-        public int GetCurrentSelectedRobot()
+        public int GetSelectedRobot()
         {
             if (robot1.IsChecked != null && (bool)robot1.IsChecked)
                 return 1;
@@ -97,7 +119,7 @@ namespace RobotecExample1
         /// Возвращает высоту от пользователся
         /// </summary>
         /// <returns></returns>
-        public float GetCurrentSelectedHeight()
+        public float GetSelectedHeight()
         {
             if (height0.IsChecked != null && (bool)height0.IsChecked)
                 return 2.5f;
@@ -118,23 +140,24 @@ namespace RobotecExample1
         /// Возвращает массив заполненых ячеек
         /// </summary>
         /// <returns></returns>
-        public bool[] GetCurrentSelectedCells()
+        public bool[] GetSelectedCells()
         {
-            _cells = new bool[]
-            {
-                (bool) checkbox0.IsChecked, (bool) checkbox1.IsChecked, (bool) checkbox2.IsChecked,(bool) checkbox3.IsChecked,(bool) checkbox4.IsChecked,(bool) checkbox5.IsChecked,
-                (bool) checkbox6.IsChecked, (bool) checkbox7.IsChecked, (bool) checkbox8.IsChecked,(bool) checkbox9.IsChecked,(bool) checkbox10.IsChecked,(bool) checkbox11.IsChecked,
-                (bool) checkbox12.IsChecked, (bool) checkbox13.IsChecked,(bool) checkbox14.IsChecked,(bool) checkbox15.IsChecked,(bool) checkbox16.IsChecked,(bool) checkbox17.IsChecked,
-                (bool) checkbox18.IsChecked, (bool) checkbox19.IsChecked, (bool) checkbox20.IsChecked,(bool) checkbox21.IsChecked,(bool) checkbox22.IsChecked,(bool) checkbox23.IsChecked,
-                (bool) checkbox24.IsChecked, (bool) checkbox25.IsChecked, (bool) checkbox26.IsChecked,(bool) checkbox27.IsChecked,(bool) checkbox28.IsChecked,(bool) checkbox29.IsChecked,
-                (bool) checkbox30.IsChecked, (bool) checkbox31.IsChecked, (bool) checkbox32.IsChecked,(bool) checkbox33.IsChecked,(bool) checkbox34.IsChecked,(bool) checkbox35.IsChecked,
-            };
-            return _cells;
+            var boxes = GetCheckBoxCells();
+
+            bool[] cells = new bool[boxes.Length + 1];
+
+            for (var i = 0; i < boxes.Length; i++)
+                cells[i] = (bool)boxes[i].IsChecked;
+
+            return cells;
         }
 
         public void ResetCells()
         {
-            _cells = new bool[GetCurrentSelectedCells().Length+1];
+            var boxes = GetCheckBoxCells();
+
+            foreach (var t in boxes)
+                t.IsChecked = false;
         }
 
         public void ResetHeight()
@@ -143,6 +166,20 @@ namespace RobotecExample1
         }
 
         #region private methods
+
+        private CheckBox[] GetCheckBoxCells()
+        {
+            _checkBoxes = new CheckBox[]
+            {
+                checkbox0,checkbox1,checkbox2,checkbox3,checkbox4,checkbox5,
+                checkbox6, checkbox7, checkbox8,checkbox9,checkbox10,checkbox11,
+                checkbox12, checkbox13,checkbox14,checkbox15,checkbox16,checkbox17,
+                checkbox18, checkbox19, checkbox20,checkbox21,checkbox22,checkbox23,
+                checkbox24, checkbox25, checkbox26,checkbox27,checkbox28,checkbox29,
+                checkbox30, checkbox31, checkbox32,checkbox33,checkbox34,checkbox35,
+            };
+            return _checkBoxes;
+        }
 
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
@@ -189,11 +226,44 @@ namespace RobotecExample1
             FinishButtonEvent?.Invoke();
         }
 
-        #endregion
-
         private void resetErrorButton_Click(object sender, RoutedEventArgs e)
         {
             ResetErrorButtonEvent?.Invoke();
+        }
+
+        private void MatrixToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            moveMatrixPanel.Visibility = Visibility.Visible;
+            movePositionPanel.Visibility = Visibility.Hidden;
+        }
+
+        private void PositionToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            moveMatrixPanel.Visibility = Visibility.Hidden;
+            movePositionPanel.Visibility = Visibility.Visible;
+        }
+
+        #endregion
+        private void fromCell_KeyDown(object sender, KeyEventArgs e)
+        {
+            KeyConverter converter = new KeyConverter();
+            string key = converter.ConvertToString(e.Key);
+
+            if (!Char.IsDigit(key.ToCharArray()[0]) && key.ToCharArray()[0] != 8) // цифры и клавиша BackSpace
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void toCell_KeyDown(object sender, KeyEventArgs e)
+        {
+            KeyConverter converter = new KeyConverter();
+            string key = converter.ConvertToString(e.Key);
+
+            if (!Char.IsDigit(key.ToCharArray()[0]) && key.ToCharArray()[0] != 8) // цифры и клавиша BackSpace
+            {
+                e.Handled = true;
+            }
         }
     }
 }
