@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "84yKMGBiMOh53ZCYYyjaJ8MtWoz13U8g/XV/5+vbMXz9lRVdW+gof3rZFly3j+cw98Jg6jfE4h46ItnW3ansyg==",
+  "dgSpecHash": "B5fMhvkyceZzZo6E8J0RrM7CiUGYpiSgbfJlgitYVcxMAoetYqiq3WZomyoL12O42T0U5G0GKQgSbIeIYRC8lw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Documents\\RobotecPRJ\\RobotecOPCExample\\RobotecExample1\\RobotecExample1.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Documents\\RobotecPRJ\\RobotecOPCExample\\RobotecLibrary\\RobotecLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.configuration.binder\\5.0.0\\microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",

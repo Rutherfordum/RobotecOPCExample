@@ -69,7 +69,7 @@ namespace Robotec
 
         public static async Task PauseMeasurementsAsync(OpcClient client)
         {
-            bool isPause = (bool)await client.ReadNode(RWNodeData.R_HOLD);
+            bool isPause = (bool)await client.ReadNodeAsync(RWNodeData.R_HOLD);
             await Task.Delay(1000);
             await client.WriteNode(RWNodeData.R_HOLD, !isPause);
         }

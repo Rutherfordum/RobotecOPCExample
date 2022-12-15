@@ -78,7 +78,7 @@ namespace Robotec.OPC
         /// </summary>
         /// <param name="id"> укажите id ноды для чтения</param>
         /// <returns> вернет результат в виде обьекта </returns>
-        public async Task<object> ReadNodeAsync(string id)
+        public async Task<object> ReadNode(string id)
         {
             if (Session == null || Session.State == CommunicationState.Faulted ||
                 Session.State != CommunicationState.Opened)
@@ -95,7 +95,6 @@ namespace Robotec.OPC
                     }
                 }
             };
-            //var readResult = Session?.ReadAsync(readValue).Result;
 
             var readResult = await Session?.ReadAsync(readValue);
             // Get Type
@@ -150,12 +149,12 @@ namespace Robotec.OPC
             double b = 0;
             double c = 0;
 
-            var xx = await ReadNodeAsync($"{id}X");
-            var yy = await ReadNodeAsync($"{id}Y");
-            var zz = await ReadNodeAsync($"{id}Z");
-            var aa = await ReadNodeAsync($"{id}A");
-            var bb = await ReadNodeAsync($"{id}B");
-            var cc = await ReadNodeAsync($"{id}C");
+            var xx = await ReadNode($"{id}X");
+            var yy = await ReadNode($"{id}Y");
+            var zz = await ReadNode($"{id}Z");
+            var aa = await ReadNode($"{id}A");
+            var bb = await ReadNode($"{id}B");
+            var cc = await ReadNode($"{id}C");
 
 
             double.TryParse(xx.ToString(), out x);

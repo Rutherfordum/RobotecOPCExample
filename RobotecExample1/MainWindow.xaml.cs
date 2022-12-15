@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Robotec;
 using RobotecExample.Controller;
-using RobotecExample.Utils;
 
 namespace RobotecExample
 {
