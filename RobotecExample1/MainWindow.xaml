@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RobotecExample"
         mc:Ignorable="d"
-        Title="RobotecExample" Height="450" Width="800">
-    <Grid>
+        Title="RobotecExample" Height="600" Width="800">
+    <Grid VerticalAlignment="Stretch" Height="584.3">
         <Grid HorizontalAlignment="Left" Margin="14,71,0,0" VerticalAlignment="Top">
             <GroupBox Header="№ робота" Height="120" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <RadioButton x:Name="robot1" Content="1" Margin="14,24,0,0" Height="17" VerticalAlignment="Top" HorizontalAlignment="Left" Width="32"/>
@@ -77,42 +77,42 @@
             <CheckBox x:Name="checkbox34" Content="" Margin="109,36,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox x:Name="checkbox35" Content="" Margin="131,36,0,0" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </Grid>
-        <GroupBox Header="Актуальные координаты" Height="105" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,285,0,0"/>
-        <TextBox x:Name="currentX" HorizontalAlignment="Left" Margin="79,310,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="X" HorizontalAlignment="Left" Margin="57,306,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="currentY" HorizontalAlignment="Left" Margin="79,336,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="Y" HorizontalAlignment="Left" Margin="57,332,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="currentZ" HorizontalAlignment="Left" Margin="79,362,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="Z" HorizontalAlignment="Left" Margin="57,358,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="currentA" HorizontalAlignment="Left" Margin="165,310,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="A" HorizontalAlignment="Left" Margin="143,306,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="currentB" HorizontalAlignment="Left" Margin="165,336,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="B" HorizontalAlignment="Left" Margin="143,332,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="currentC" HorizontalAlignment="Left" Margin="165,362,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="C" HorizontalAlignment="Left" Margin="143,358,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Целевые координаты" Height="105" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,285,0,0"/>
-        <TextBox x:Name="targetX" HorizontalAlignment="Left" Margin="272,310,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="X" HorizontalAlignment="Left" Margin="250,306,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="targetY" HorizontalAlignment="Left" Margin="272,336,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="Y" HorizontalAlignment="Left" Margin="250,332,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="targetZ" HorizontalAlignment="Left" Margin="272,362,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="Z" HorizontalAlignment="Left" Margin="250,358,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="targetA" HorizontalAlignment="Left" Margin="358,310,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="A" HorizontalAlignment="Left" Margin="336,306,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="targetB" HorizontalAlignment="Left" Margin="358,336,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="B" HorizontalAlignment="Left" Margin="336,332,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="targetC" HorizontalAlignment="Left" Margin="358,362,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="C" HorizontalAlignment="Left" Margin="336,358,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Актуальные координаты" Height="105" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,431,0,0"/>
+        <TextBox x:Name="currentX" HorizontalAlignment="Left" Margin="48,456,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="X" HorizontalAlignment="Left" Margin="26,452,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="currentY" HorizontalAlignment="Left" Margin="48,482,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="Y" HorizontalAlignment="Left" Margin="26,478,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="currentZ" HorizontalAlignment="Left" Margin="48,508,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="Z" HorizontalAlignment="Left" Margin="26,504,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="currentA" HorizontalAlignment="Left" Margin="134,456,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="A" HorizontalAlignment="Left" Margin="112,452,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="currentB" HorizontalAlignment="Left" Margin="134,482,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="B" HorizontalAlignment="Left" Margin="112,478,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="currentC" HorizontalAlignment="Left" Margin="134,508,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="C" HorizontalAlignment="Left" Margin="112,504,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Целевые координаты" Height="105" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="209,431,0,0"/>
+        <TextBox x:Name="targetX" HorizontalAlignment="Left" Margin="241,456,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="X" HorizontalAlignment="Left" Margin="219,452,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="targetY" HorizontalAlignment="Left" Margin="241,482,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="Y" HorizontalAlignment="Left" Margin="219,478,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="targetZ" HorizontalAlignment="Left" Margin="241,508,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="Z" HorizontalAlignment="Left" Margin="219,504,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="targetA" HorizontalAlignment="Left" Margin="327,456,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="A" HorizontalAlignment="Left" Margin="305,452,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="targetB" HorizontalAlignment="Left" Margin="327,482,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="B" HorizontalAlignment="Left" Margin="305,478,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="targetC" HorizontalAlignment="Left" Margin="327,508,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="C" HorizontalAlignment="Left" Margin="305,504,0,0" VerticalAlignment="Top"/>
         <Image HorizontalAlignment="Left" Height="41" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Source="/Resources/Images/2560px-IU_logo.svg.png"/>
-        <Button x:Name="StopButton" Content="Стоп" HorizontalAlignment="Left" Margin="433,295,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="StopButton_OnClickButton_Click"/>
-        <Button x:Name="StartButton" Content="Старт" HorizontalAlignment="Left" Margin="538,325,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="StartButton_OnClickButton_Click"/>
-        <Button x:Name="ClearButton" Content="Очистить" HorizontalAlignment="Left" Margin="538,295,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="ClearButton_OnClickButton_Click"/>
-        <Button x:Name="PauseStartButton" Content="Пауза/Продолжить" HorizontalAlignment="Left" Margin="433,325,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="PauseStartButton_OnClickButton_Click"/>
-        <Button x:Name="HomeButton" Content="Домой" HorizontalAlignment="Left" Margin="433,355,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="HomeButton_OnClickButton_Click"/>
-        <Button x:Name="ManualControlButton" Content="Руч. Управление" HorizontalAlignment="Left" Margin="538,355,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="ManualControlButton_OnClickButton_Click"/>
+        <Button x:Name="StopButton" Content="Остановить программу" HorizontalAlignment="Left" Margin="426,402,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="StopButton_OnClickButton_Click"/>
+        <Button x:Name="StartButton" Content="Начать измерение" HorizontalAlignment="Left" Margin="426,308,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="StartButton_OnClickButton_Click"/>
+        <Button x:Name="ClearButton" Content="Очистить" HorizontalAlignment="Left" Margin="575,372,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="ClearButton_OnClickButton_Click"/>
+        <Button x:Name="PauseStartButton" Content="Пауза/Продолжить" HorizontalAlignment="Left" Margin="575,340,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="PauseStartButton_OnClickButton_Click"/>
+        <Button x:Name="HomeButton" Content="Домой" HorizontalAlignment="Left" Margin="575,308,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="HomeButton_OnClickButton_Click"/>
+        <Button x:Name="ManualControlButton" Content="Руч. Управление" HorizontalAlignment="Left" Margin="219,308,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="ManualControlButton_OnClickButton_Click"/>
         <TextBox x:Name="connectStatus" HorizontalAlignment="Left" Margin="130,63,0,0" Text="status" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnlyCaretVisible="True"/>
-        <Button x:Name="finishButton" Content="Завершить измерения" HorizontalAlignment="Left" Margin="463,263,0,0" VerticalAlignment="Top" Height="27" Width="144" Click="FinishButton_Click"/>
-        <Button x:Name="resetErrorButton" Content="Сброс ошибки" HorizontalAlignment="Left" Margin="485,385,0,0" VerticalAlignment="Top" Width="100" Height="24" Click="resetErrorButton_Click"/>
+        <Button x:Name="finishButton" Content="Завершить измерения" HorizontalAlignment="Left" Margin="426,370,0,0" VerticalAlignment="Top" Height="27" Width="144" Click="FinishButton_Click"/>
+        <Button x:Name="resetErrorButton" Content="Сброс ошибки" HorizontalAlignment="Left" Margin="575,402,0,0" VerticalAlignment="Top" Width="100" Height="24" Click="resetErrorButton_Click"/>
         <Grid x:Name="movePositionPanel" HorizontalAlignment="Left" Height="126" Margin="575,61,0,0" VerticalAlignment="Top" Width="176">
             <TextBox x:Name="fromCell" HorizontalAlignment="Left" Margin="11,47,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="fromCell_KeyDown"/>
             <TextBox x:Name="toCell" HorizontalAlignment="Left" Margin="11,96,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="toCell_KeyDown"/>
@@ -126,19 +126,22 @@
         </Grid>
         <RadioButton x:Name="matrixToggle" Content="По матрице" HorizontalAlignment="Left" Margin="315,79,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="positionToggle" Content="По позиции" HorizontalAlignment="Left" Margin="315,102,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Координаты для перемещения" Height="105" Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,172,0,0"/>
-        <TextBox x:Name="moveX" HorizontalAlignment="Left" Margin="272,197,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="X" HorizontalAlignment="Left" Margin="250,193,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="moveY" HorizontalAlignment="Left" Margin="272,223,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="Y" HorizontalAlignment="Left" Margin="250,219,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="moveZ" HorizontalAlignment="Left" Margin="272,249,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="Z" HorizontalAlignment="Left" Margin="250,245,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="moveA" HorizontalAlignment="Left" Margin="358,197,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="A" HorizontalAlignment="Left" Margin="336,193,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="moveB" HorizontalAlignment="Left" Margin="358,223,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="B" HorizontalAlignment="Left" Margin="336,219,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="moveC" HorizontalAlignment="Left" Margin="358,249,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
-        <Label Content="C" HorizontalAlignment="Left" Margin="336,245,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Координаты для перемещения" Height="105" Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,298,0,0"/>
+        <TextBox x:Name="moveX" HorizontalAlignment="Left" Margin="48,323,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="X" HorizontalAlignment="Left" Margin="26,319,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="moveY" HorizontalAlignment="Left" Margin="48,349,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="Y" HorizontalAlignment="Left" Margin="26,345,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="moveZ" HorizontalAlignment="Left" Margin="48,375,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="Z" HorizontalAlignment="Left" Margin="26,371,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="moveA" HorizontalAlignment="Left" Margin="134,323,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="A" HorizontalAlignment="Left" Margin="112,319,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="moveB" HorizontalAlignment="Left" Margin="134,349,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="B" HorizontalAlignment="Left" Margin="112,345,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="moveC" HorizontalAlignment="Left" Margin="134,375,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" UndoLimit="3" IsReadOnlyCaretVisible="True"/>
+        <Label Content="C" HorizontalAlignment="Left" Margin="112,371,0,0" VerticalAlignment="Top"/>
+        <Button Content="Начать движение" HorizontalAlignment="Left" Margin="219,338,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="Button_Click"/>
+        <Button x:Name="openWindowSignals" Content="Показать сигналы" HorizontalAlignment="Left" Margin="426,499,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="openWindowSignals_Click"/>
+        <Button x:Name="Continue_programm" Content="Продолжить измерения" HorizontalAlignment="Left" Margin="426,339,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="Continue_programm_Click"/>
 
     </Grid>
 </Window>

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Robotec;
 using RobotecExample.Controller;
 using RobotecExample.Utils;
 
@@ -15,7 +17,7 @@ namespace RobotecExample
         public MainWindow()
         {
             InitializeComponent();
-            RobotecController controller = new RobotecController(this, new RobotecModel());
+            RobotecController controller = new RobotecController(this);
             robot1.IsChecked = true;
             height0.IsChecked = true;
             ResizeMode = ResizeMode.NoResize;
@@ -32,10 +34,13 @@ namespace RobotecExample
         public event Action HomeButtonEvent;
         public event Action PauseStartButtonEvent;
         public event Action ManualControlButtonEvent;
+        public event Action ManualControlStartButtonEvent;
         public event Action ConnectButtonEvent;
         public event Action DisconnectButtonEvent;
         public event Action FinishButtonEvent;
-        public event Action ResetErrorButtonEvent;
+        public event Func<Task> ResetErrorButtonEvent;
+        public event Action ContinueButtonEvent;
+
 
         private CheckBox[] _checkBoxes;
 
@@ -243,7 +248,16 @@ namespace RobotecExample
             movePositionPanel.Visibility = Visibility.Visible;
         }
 
-        #endregion
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ManualControlStartButtonEvent?.Invoke();
+        }
+
+        private void openWindowSignals_Click(object sender, RoutedEventArgs e)
+        {
+            new SignalsFromRobot().ShowDialog();
+        }
+
         private void fromCell_KeyDown(object sender, KeyEventArgs e)
         {
             KeyConverter converter = new KeyConverter();
@@ -264,6 +278,13 @@ namespace RobotecExample
             {
                 e.Handled = true;
             }
+        }
+
+        #endregion
+
+        private void Continue_programm_Click(object sender, RoutedEventArgs e)
+        {
+            ContinueButtonEvent?.Invoke();
         }
     }
 }
