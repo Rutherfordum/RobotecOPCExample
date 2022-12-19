@@ -36,5 +36,3 @@ C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\Robote
 C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\net5.0-windows\RobotecExample1.genruntimeconfig.cache
 C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\net5.0-windows\RobotecLibrary.dll
 C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\bin\Debug\net5.0-windows\RobotecLibrary.pdb
-C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\net5.0-windows\SignalsWindow.g.cs
-C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\net5.0-windows\SignalsWindow.baml

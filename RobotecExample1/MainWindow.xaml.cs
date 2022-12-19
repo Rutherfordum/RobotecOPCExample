@@ -26,8 +26,6 @@ namespace RobotecExample
             toCell.MaxLength = 2;
         }
 
-      //  public SignalsWindow SignalsFromRobotWindow = new SignalsWindow();
-
         public event Action StartTaskButtonEvent;
         public event Action StopTaskButtonEvent;
         public event Action ResetDataButtonEvent;
@@ -43,7 +41,6 @@ namespace RobotecExample
         public event Action EmergencyStopButtonEvent;
         public event Action OpenGripperButtonEvent;
         public event Action CloseGripperButtonEvent;
-
 
         private CheckBox[] _checkBoxes;
 
@@ -257,14 +254,6 @@ namespace RobotecExample
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             StartMovingManualButtonEvent?.Invoke();
-        }
-
-        private void openWindowSignals_Click(object sender, RoutedEventArgs e)
-        {
-          /*  if (SignalsFromRobotWindow == null)
-                SignalsFromRobotWindow = new SignalsWindow();
-
-            SignalsFromRobotWindow.Show();*/
         }
 
         private void fromCell_KeyDown(object sender, KeyEventArgs e)

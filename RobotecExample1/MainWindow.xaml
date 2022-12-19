@@ -142,7 +142,6 @@
             <Label Content="C" HorizontalAlignment="Left" Margin="96,73,0,0" VerticalAlignment="Top"/>
         </Grid>
         <Button Content="Начать движение" HorizontalAlignment="Left" Margin="219,281,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="Button_Click"/>
-        <Button x:Name="openWindowSignals" Content="Показать сигналы" HorizontalAlignment="Left" Margin="16,399,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="openWindowSignals_Click" Visibility="Hidden"/>
         <Button x:Name="Continue_programm" Content="Продолжить задание" HorizontalAlignment="Left" Margin="431,281,0,0" VerticalAlignment="Top" Width="144" Height="27" Click="Continue_programm_Click"/>
         <Button Content="Аварийное завершение измерения" HorizontalAlignment="Left" Margin="431,313,0,0" VerticalAlignment="Top" Width="293" Height="27" Click="Button_Click_1" Background="Yellow"/>
         <Label Content="Управление роботом" HorizontalAlignment="Left" Margin="431,387,0,0" VerticalAlignment="Top"/>

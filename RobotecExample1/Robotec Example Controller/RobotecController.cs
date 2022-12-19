@@ -9,7 +9,6 @@ using Robotec.OPC;
 using Robotec.R_Nodes;
 using Robotec.RW_Nodes;
 using RobotecExample.Annotations;
-using RobotecExample.Scripts;
 using RobotecExample.Scripts.Static_Class;
 using Workstation.ServiceModel.Ua;
 using DispatcherPriority = System.Windows.Threading.DispatcherPriority;
@@ -25,19 +24,6 @@ namespace RobotecExample
         private Transform _manualTransform;
         private Transform _currentTransform;
         private Transform _targetTransform;
-
-        private bool IN_HOME;
-        private string PRO_STATE;
-        private bool JOG_FINISH;
-
-        private bool T1;
-        private bool EXT;
-        private bool ALARM_STOP;
-        private bool USER_SAF;
-        private bool STOPMESS;
-        private string MODEOP;
-        private string MessageStatus;
-
         private string _statusMessage;
 
         public string StatusMessage
@@ -223,8 +209,6 @@ namespace RobotecExample
         {
             if (_client == null) return;
 
-          //  await Robot.ResetError(_client);
-
             await _client.WriteNodeAsync(RWNodeData.R_START, true);
             await Task.Delay(500);
             await _client.WriteNodeAsync(RWNodeData.R_START, false);
@@ -298,17 +282,11 @@ namespace RobotecExample
 
             OutMessageAlarm();
             while (_client.Session.State == CommunicationState.Opened)
-
-            //(_client.Session.State != CommunicationState.Faulted ||
-            //_client.Session.State != CommunicationState.Closed)
-            //    &&
             {
                 _currentTransform = Robot.GetActualTransformRobot(_client);
                 _targetTransform = Robot.GetTargetTransformRobot(_client);
-                //     ReadAllSignalsFromRobot();
                 Task.Delay(500);
                 TransformDataToView();
-                //      ReadedSignalsFromRobotToView();
             }
         }
 
@@ -324,25 +302,14 @@ namespace RobotecExample
 
         #endregion
 
-        //public Dictionary<MessageEnum, string> MessageAlm = new Dictionary<MessageEnum, string>()
-        //{
-        //    {MessageEnum.NO_MESSAGE, "#NO_MESSAGE"},
-        //    {MessageEnum.CANT_START_SAMPLE_INGRIP, "#CANT_START_SAMPLE_INGRIP"},
-        //    {MessageEnum.NO_SAMPLE_IN_SLOT, "#NO_SAMPLE_IN_SLOT"},
-        //    {MessageEnum.SAMPLE_LOST, "#SAMPLE_LOST"},
-        //    {MessageEnum.GRIPPER_COLLISION, "#GRIPPER_COLLISION"},
-        //    {MessageEnum.NOT_IN_HOME, "#NOT_IN_HOME"}
-        //};
-
         private async void OutMessageAlarm()
         {
             try
             {
                 while (_client.Session.State == CommunicationState.Opened)
                 {
-                    string mes =
-                        (string) await _client.ReadNodeAsync(
-                            "ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.OA_MESSAGE") ?? "Disconnected";
+                    string mes = (string) await _client.ReadNodeAsync(RNodeData.OA_MESSAGE) ?? "Disconnected";
+                    
                     switch (mes)
                     {
                         case "Disconnected":
@@ -406,35 +373,6 @@ namespace RobotecExample
             _view.ResetHeight();
             _view.ResetManualTransform();
             _view.ResetTargetTransform();
-        }
-
-        private async void ReadAllSignalsFromRobot()
-        {
-            T1 = (bool)await _client.ReadNodeAsync(RNodeData.T1);
-            JOG_FINISH = (bool)await _client.ReadNodeAsync(RNodeData.JOG_FINISH);
-            EXT = (bool)await _client.ReadNodeAsync(RNodeData.EXT);
-            ALARM_STOP = (bool)await _client.ReadNodeAsync(RNodeData.ALARM_STOP);
-            USER_SAF = (bool)await _client.ReadNodeAsync(RNodeData.USER_SAF);
-            STOPMESS = (bool)await _client.ReadNodeAsync(RNodeData.STOPMESS);
-            MODEOP = (string)await _client.ReadNodeAsync(RNodeData.ModeOP);
-            IN_HOME = (bool)await _client.ReadNodeAsync(RNodeData.IN_HOME);
-            PRO_STATE = (string)await _client.ReadNodeAsync(RNodeData.PRO_STATE);
-        }
-
-        private void ReadedSignalsFromRobotToView()
-        {
-            /*  _view.SignalsFromRobotWindow.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
-              {
-                  _view.SignalsFromRobotWindow.text4.Text = "T1: " + T1.ToString();
-                  _view.SignalsFromRobotWindow.text3.Text = "JOG_FINISH: " + JOG_FINISH.ToString();
-                  _view.SignalsFromRobotWindow.text1.Text = "IN_HOME: " + IN_HOME.ToString();
-                  _view.SignalsFromRobotWindow.text2.Text = "PRO_STATE: " + PRO_STATE;
-                  _view.SignalsFromRobotWindow.text5.Text = "EXT: " + EXT.ToString();
-                  _view.SignalsFromRobotWindow.text6.Text = "ALARM_STOP: " + ALARM_STOP.ToString();
-                  _view.SignalsFromRobotWindow.text7.Text = "USER_SAF: " + USER_SAF.ToString();
-                  _view.SignalsFromRobotWindow.text8.Text = "STOPMESS: " + STOPMESS.ToString();
-                  _view.SignalsFromRobotWindow.text9.Text = "MODEOP: " + MODEOP;
-              });*/
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
