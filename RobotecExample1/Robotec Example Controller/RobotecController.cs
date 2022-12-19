@@ -223,7 +223,12 @@ namespace RobotecExample
         {
             if (_client == null) return;
 
-            await Robot.ResetError(_client);
+          //  await Robot.ResetError(_client);
+
+            await _client.WriteNodeAsync(RWNodeData.R_START, true);
+            await Task.Delay(500);
+            await _client.WriteNodeAsync(RWNodeData.R_START, false);
+
         }
         private async void PauseContinue()
         {
