@@ -1,12 +1,12 @@
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\bin\Debug\net5.0\RobotecLibrary.deps.json
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\bin\Debug\net5.0\RobotecLibrary.dll
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\bin\Debug\net5.0\ref\RobotecLibrary.dll
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\bin\Debug\net5.0\RobotecLibrary.pdb
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.csproj.AssemblyReference.cache
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.AssemblyInfoInputs.cache
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.AssemblyInfo.cs
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.dll
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\ref\RobotecLibrary.dll
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.pdb
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\bin\Debug\net5.0\RobotecLibrary.deps.json
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\bin\Debug\net5.0\RobotecLibrary.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\bin\Debug\net5.0\ref\RobotecLibrary.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\bin\Debug\net5.0\RobotecLibrary.pdb
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.csproj.AssemblyReference.cache
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.AssemblyInfoInputs.cache
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.AssemblyInfo.cs
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.csproj.CoreCompileInputs.cache
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\ref\RobotecLibrary.dll
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecLibrary\obj\Debug\net5.0\RobotecLibrary.pdb

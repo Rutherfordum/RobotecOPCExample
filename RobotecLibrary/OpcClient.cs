@@ -78,7 +78,7 @@ namespace Robotec.OPC
         /// </summary>
         /// <param name="id"> укажите id ноды для чтения</param>
         /// <returns> вернет результат в виде обьекта </returns>
-        public async Task<object> ReadNode(string id)
+        public async Task<object> ReadNodeAsync(string id)
         {
             if (Session == null || Session.State == CommunicationState.Faulted ||
                 Session.State != CommunicationState.Opened)
@@ -95,8 +95,38 @@ namespace Robotec.OPC
                     }
                 }
             };
+            //var readResult = Session?.ReadAsync(readValue).Result;
 
             var readResult = await Session?.ReadAsync(readValue);
+            // Get Type
+            return readResult.Results[0].Value ?? "error read id, value is null";
+        }
+
+        /// <summary>
+        /// Чтение ноды с сервера OPC
+        /// </summary>
+        /// <param name="id"> укажите id ноды для чтения</param>
+        /// <returns> вернет результат в виде обьекта </returns>
+        public object ReadNode(string id)
+        {
+            if (Session == null || Session.State == CommunicationState.Faulted ||
+                Session.State != CommunicationState.Opened)
+                return "error read id, value is null";
+
+            var readValue = new ReadRequest
+            {
+                NodesToRead = new[]
+                {
+                    new ReadValueId
+                    {
+                        NodeId = NodeId.Parse(id),
+                        AttributeId = AttributeIds.Value
+                    }
+                }
+            };
+            //var readResult = Session?.ReadAsync(readValue).Result;
+
+            var readResult = Session?.ReadAsync(readValue).Result;
             // Get Type
             return readResult.Results[0].Value ?? "error read id, value is null";
         }
@@ -106,7 +136,7 @@ namespace Robotec.OPC
         /// </summary>
         /// <param name="id"> укажите id ноды для записи </param>
         /// <param name="value"> укажите значение для записи: double, int, string </param>
-        public async Task WriteNode(string id, object value)
+        public async Task WriteNodeAsync(string id, object value)
         {
             if (Session == null || Session.State == CommunicationState.Faulted ||
                 Session.State != CommunicationState.Opened)
@@ -129,49 +159,30 @@ namespace Robotec.OPC
         }
 
         /// <summary>
-        /// Чтение позиций робота
+        /// Запись значения на сервер OPC
         /// </summary>
-        /// <param name="id">укажите ноду для чтения позиций робота</param>
-        /// <returns></returns>
-        public async Task<Transform> ReadTransformNodeAsync(string id)
+        /// <param name="id"> укажите id ноды для записи </param>
+        /// <param name="value"> укажите значение для записи: double, int, string </param>
+        public void WriteNode(string id, object value)
         {
             if (Session == null || Session.State == CommunicationState.Faulted ||
                 Session.State != CommunicationState.Opened)
-                return new Transform();
+                throw new Exception("Client is null or fauler");
 
-            Transform transform = new Transform();
+            var writeValue = new WriteRequest
+            {
+                NodesToWrite = new[]
+                {
+                    new WriteValue
+                    {
+                        AttributeId = AttributeIds.Value,
+                        NodeId = NodeId.Parse(id),
+                        Value = new DataValue(value)
+                    }
+                }
+            };
 
-            await Task.Delay(500);
-            double x = 0;
-            double y = 0;
-            double z = 0;
-            double a = 0;
-            double b = 0;
-            double c = 0;
-
-            var xx = await ReadNode($"{id}X");
-            var yy = await ReadNode($"{id}Y");
-            var zz = await ReadNode($"{id}Z");
-            var aa = await ReadNode($"{id}A");
-            var bb = await ReadNode($"{id}B");
-            var cc = await ReadNode($"{id}C");
-
-
-            double.TryParse(xx.ToString(), out x);
-            double.TryParse(yy.ToString(), out y);
-            double.TryParse(zz.ToString(), out z);
-            double.TryParse(aa.ToString(), out a);
-            double.TryParse(bb.ToString(), out b);
-            double.TryParse(cc.ToString(), out c);
-
-            transform.X = (float)x;
-            transform.Y = (float)y;
-            transform.Z = (float)z;
-            transform.A = (float)a;
-            transform.B = (float)b;
-            transform.C = (float)c;
-
-            return transform;
+            Session?.WriteAsync(writeValue);
         }
 
         private void SessionFaulted(object sender, EventArgs e)

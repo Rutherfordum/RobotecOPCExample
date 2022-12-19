@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\obj\Debug\net5.0-windows\
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\obj\Debug\net5.0-windows\
 RobotecExample
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\Admin\Documents\RobotecPRJ\RobotecOPCExample\RobotecExample1\App.xaml
-11407045341
+C:\Users\s.zaitsev\Documents\Unity Projects\Robotec OPC\RobotecOPCExample\RobotecExample1\App.xaml
+2-1431751125
 
-101687336175
-206-864849333
-MainWindow.xaml;
+14325697402
+207-792800203
+MainWindow.xaml;SignalsWindow.xaml;
 
-True
+False
 

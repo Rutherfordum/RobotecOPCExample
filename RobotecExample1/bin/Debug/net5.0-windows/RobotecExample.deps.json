@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v5.0": {
       "RobotecExample/1.0.0": {
         "dependencies": {
-          "Workstation.UaClient": "3.1.1"
+          "Workstation.UaClient": "3.1.1",
+          "RobotecLibrary": "1.0.0.0"
         },
         "runtime": {
           "RobotecExample.dll": {}
@@ -155,6 +156,14 @@
             "fileVersion": "3.1.1.0"
           }
         }
+      },
+      "RobotecLibrary/1.0.0.0": {
+        "runtime": {
+          "RobotecLibrary.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -268,6 +277,11 @@
       "sha512": "sha512-h6jvFXCP0R36jJbc3FUgL/bwRutiKZQUwgAfsGz3C2ZbjwewYNLIS1y6btUcqhcit/MuVkP0YKhfVDDglpZH+Q==",
       "path": "workstation.uaclient/3.1.1",
       "hashPath": "workstation.uaclient.3.1.1.nupkg.sha512"
+    },
+    "RobotecLibrary/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

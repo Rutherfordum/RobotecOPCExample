@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Robotec;
-using RobotecExample.Controller;
 
 namespace RobotecExample
 {
@@ -17,6 +15,7 @@ namespace RobotecExample
         {
             InitializeComponent();
             RobotecController controller = new RobotecController(this);
+            DataContext = controller;
             robot1.IsChecked = true;
             height0.IsChecked = true;
             ResizeMode = ResizeMode.NoResize;
@@ -27,18 +26,23 @@ namespace RobotecExample
             toCell.MaxLength = 2;
         }
 
-        public event Action StartButtonEvent;
-        public event Action StopButtonEvent;
-        public event Action ClearButtonEvent;
-        public event Action HomeButtonEvent;
-        public event Action PauseStartButtonEvent;
+      //  public SignalsWindow SignalsFromRobotWindow = new SignalsWindow();
+
+        public event Action StartTaskButtonEvent;
+        public event Action StopTaskButtonEvent;
+        public event Action ResetDataButtonEvent;
+        public event Action PositionHomeButtonEvent;
+        public event Action PauseContinueButtonEvent;
         public event Action ManualControlButtonEvent;
-        public event Action ManualControlStartButtonEvent;
+        public event Action StartMovingManualButtonEvent;
         public event Action ConnectButtonEvent;
         public event Action DisconnectButtonEvent;
-        public event Action FinishButtonEvent;
-        public event Func<Task> ResetErrorButtonEvent;
-        public event Action ContinueButtonEvent;
+        public event Action EndMeasurementButtonEvent;
+        public event Action ResetErrorButtonEvent;
+        public event Action ContinueTaskButtonEvent;
+        public event Action EmergencyStopButtonEvent;
+        public event Action OpenGripperButtonEvent;
+        public event Action CloseGripperButtonEvent;
 
 
         private CheckBox[] _checkBoxes;
@@ -55,13 +59,9 @@ namespace RobotecExample
             var b = float.Parse(moveB.Text);
             var c = float.Parse(moveC.Text);
 
-            return new Transform(x,y,z,a,b,c);
+            return new Transform(x, y, z, a, b, c);
         }
 
-        /// <summary>
-        /// Устанавлливает значения позиций робота в интерфейс
-        /// </summary>
-        /// <param name="transform"></param>
         public void SetActualTransform(Transform transform)
         {
             currentX.Text = transform.X.ToString();
@@ -72,19 +72,11 @@ namespace RobotecExample
             currentC.Text = transform.C.ToString();
         }
 
-        /// <summary>
-        /// Устанавливаем статус подклюения
-        /// </summary>
-        /// <param name="value"></param>
         public void SetConnectStatus(bool value)
         {
             connectStatus.Text = value ? "Connected" : "Disconnected";
         }
 
-        /// <summary>
-        /// Устанавлливает значения позиций робота в интерфейс
-        /// </summary>
-        /// <param name="transform"></param>
         public void SetTargetTransform(Transform transform)
         {
             targetX.Text = transform.X.ToString();
@@ -95,23 +87,16 @@ namespace RobotecExample
             targetC.Text = transform.C.ToString();
         }
 
-        /// <summary>
-        /// Возвращает выбранного робота пользователь на GUI
-        /// </summary>
-        /// <returns></returns>
         public int GetSelectedRobot()
         {
             if (robot1.IsChecked != null && (bool)robot1.IsChecked)
                 return 1;
 
-
             if (robot2.IsChecked != null && (bool)robot2.IsChecked)
                 return 2;
 
-
             if (robot3.IsChecked != null && (bool)robot3.IsChecked)
                 return 3;
-
 
             if (robot4.IsChecked != null && (bool)robot4.IsChecked)
                 return 4;
@@ -119,10 +104,6 @@ namespace RobotecExample
             return 0;
         }
 
-        /// <summary>
-        /// Возвращает высоту от пользователся
-        /// </summary>
-        /// <returns></returns>
         public float GetSelectedHeight()
         {
             if (height0.IsChecked != null && (bool)height0.IsChecked)
@@ -140,10 +121,6 @@ namespace RobotecExample
             return 2.5f;
         }
 
-        /// <summary>
-        /// Возвращает массив заполненых ячеек
-        /// </summary>
-        /// <returns></returns>
         public bool[] GetSelectedCells()
         {
             var boxes = GetCheckBoxCells();
@@ -167,6 +144,36 @@ namespace RobotecExample
         public void ResetHeight()
         {
             height0.IsChecked = true;
+        }
+
+        public void ResetManualTransform()
+        {
+            moveX.Text = 0.ToString();
+            moveY.Text = 0.ToString();
+            moveZ.Text = 0.ToString();
+            moveA.Text = 0.ToString();
+            moveB.Text = 0.ToString();
+            moveC.Text = 0.ToString();
+        }
+
+        public void ResetActualTransform()
+        {
+            currentX.Text = 0.ToString();
+            currentY.Text = 0.ToString();
+            currentZ.Text = 0.ToString();
+            currentA.Text = 0.ToString();
+            currentB.Text = 0.ToString();
+            currentC.Text = 0.ToString();
+        }
+
+        public void ResetTargetTransform()
+        {
+            targetX.Text = 0.ToString();
+            targetY.Text = 0.ToString();
+            targetZ.Text = 0.ToString();
+            targetA.Text = 0.ToString();
+            targetB.Text = 0.ToString();
+            targetC.Text = 0.ToString();
         }
 
         #region private methods
@@ -197,27 +204,27 @@ namespace RobotecExample
 
         private void StopButton_OnClickButton_Click(object sender, RoutedEventArgs e)
         {
-            StopButtonEvent?.Invoke();
+            StopTaskButtonEvent?.Invoke();
         }
 
         private void StartButton_OnClickButton_Click(object sender, RoutedEventArgs e)
         {
-            StartButtonEvent?.Invoke();
+            StartTaskButtonEvent?.Invoke();
         }
 
         private void ClearButton_OnClickButton_Click(object sender, RoutedEventArgs e)
         {
-            ClearButtonEvent?.Invoke();
+            ResetDataButtonEvent?.Invoke();
         }
 
         private void PauseStartButton_OnClickButton_Click(object sender, RoutedEventArgs e)
         {
-            PauseStartButtonEvent?.Invoke();
+            PauseContinueButtonEvent?.Invoke();
         }
 
         private void HomeButton_OnClickButton_Click(object sender, RoutedEventArgs e)
         {
-            HomeButtonEvent?.Invoke();
+            PositionHomeButtonEvent?.Invoke();
         }
 
         private void ManualControlButton_OnClickButton_Click(object sender, RoutedEventArgs e)
@@ -227,7 +234,7 @@ namespace RobotecExample
 
         private void FinishButton_Click(object sender, RoutedEventArgs e)
         {
-            FinishButtonEvent?.Invoke();
+            EndMeasurementButtonEvent?.Invoke();
         }
 
         private void resetErrorButton_Click(object sender, RoutedEventArgs e)
@@ -249,12 +256,15 @@ namespace RobotecExample
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ManualControlStartButtonEvent?.Invoke();
+            StartMovingManualButtonEvent?.Invoke();
         }
 
         private void openWindowSignals_Click(object sender, RoutedEventArgs e)
         {
-            new SignalsFromRobot().ShowDialog();
+          /*  if (SignalsFromRobotWindow == null)
+                SignalsFromRobotWindow = new SignalsWindow();
+
+            SignalsFromRobotWindow.Show();*/
         }
 
         private void fromCell_KeyDown(object sender, KeyEventArgs e)
@@ -279,11 +289,24 @@ namespace RobotecExample
             }
         }
 
-        #endregion
-
         private void Continue_programm_Click(object sender, RoutedEventArgs e)
         {
-            ContinueButtonEvent?.Invoke();
+            ContinueTaskButtonEvent?.Invoke();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            EmergencyStopButtonEvent?.Invoke();
+        }
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            OpenGripperButtonEvent?.Invoke();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            CloseGripperButtonEvent?.Invoke();
+        }
+        #endregion
     }
 }

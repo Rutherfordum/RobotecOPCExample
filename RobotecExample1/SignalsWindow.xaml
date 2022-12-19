@@ -1,0 +1,21 @@
+﻿<Window x:Class="RobotecExample.SignalsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RobotecExample"
+        mc:Ignorable="d"
+        Title="Сигналы от робота в АРМ" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <TextBox x:Name="text1" HorizontalAlignment="Left" Margin="35,34,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+        <TextBox x:Name="text2" HorizontalAlignment="Left" Margin="35,57,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+        <TextBox x:Name="text3" HorizontalAlignment="Left" Margin="35,80,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+        <TextBox x:Name="text4" HorizontalAlignment="Left" Margin="35,103,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+        <TextBox x:Name="text5" HorizontalAlignment="Left" Margin="35,126,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+        <TextBox x:Name="text6" HorizontalAlignment="Left" Margin="35,149,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+        <TextBox x:Name="text7" HorizontalAlignment="Left" Margin="35,172,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+        <TextBox x:Name="text8" HorizontalAlignment="Left" Margin="35,195,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+        <TextBox x:Name="text9" HorizontalAlignment="Left" Margin="35,218,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+
+    </Grid>
+</Window>

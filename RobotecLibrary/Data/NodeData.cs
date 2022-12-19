@@ -8,6 +8,13 @@ namespace Robotec.RW_Nodes
     public static class RWNodeData
     {
         /// <summary>
+        /// Управление захватом
+        /// Type BOOL
+        /// </summary>
+        public static readonly string GRIP_CONTROL_OPEN =
+            "ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.IA_GRIP_CONTROL_OPEN";
+
+        /// <summary>
         /// Запуск выбранной программы робота,
         /// Type BOOL
         /// </summary>
@@ -141,10 +148,8 @@ namespace Robotec.RW_Nodes
 
         public static readonly Dictionary<Enum_PG_TASK, string> TASK = new Dictionary<Enum_PG_TASK, string>()
         {
-            {Enum_PG_TASK.MAIN, "#MAIN"},
             {Enum_PG_TASK.MANUAL_JOG_DELTA, "#MANUAL_JOG_DELTA"},
             {Enum_PG_TASK.MANUAL_JOG_ABS, "#MANUAL_JOG_ABS"},
-            {Enum_PG_TASK.TEST, "#TEST"},
             {Enum_PG_TASK.RETURN_HOME, "#RETURN_HOME"},
             {Enum_PG_TASK.NOTASK, "#NOTASK"},
             {Enum_PG_TASK.MAIN_MATRIX, "#MAIN_MATRIX"},
@@ -161,6 +166,14 @@ namespace Robotec.R_Nodes
     /// </summary>
     public static class RNodeData
     {
+        /// <summary>
+        /// Сообщения об ошибок
+        /// Return string
+        /// </summary>
+        public const string OA_MESSAGE = 
+            "ns=5;s=MotionDeviceSystem.ProcessData.Special.SpecialData.OA_MESSAGE";
+
+
         /// <summary>
         /// Робот в домашней позиции
         /// Return BOOL
